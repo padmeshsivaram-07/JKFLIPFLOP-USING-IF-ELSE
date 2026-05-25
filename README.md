@@ -33,16 +33,64 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
 **Procedure**
-
-/* write all the steps invloved */
+1.Type the program in Quartus software.
+2.Compile and run the program.
+3.Generate the RTL schematic and save the logic diagram.
+4.Create nodes for inputs and outputs to generate the timing diagram
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+ Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:212225240103
+```
+module exp3(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+ //Write logic for JK flipflop using if else statement for four conditions
+
+begin
+               if (j == 0 && k == 0)
+                    begin
+                    q <= q;
+                    qb <= qb;
+                    end 
+		else if (j != k)
+                    begin
+                    q <= j;
+                    qb <= k;
+                    end
+               else if (j == 1 && k == 1) 
+                    begin 
+                    q <= ~q; 
+                    qb <= ~qb; 
+                    end 
+            end
+end  
+endmodule
+
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1919" height="1023" alt="Screenshot 2026-05-25 103946" src="https://github.com/user-attachments/assets/00dd446d-fc32-4849-9d71-02fe7b043ced" />
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1918" height="1021" alt="500128868-9991e58d-db4f-48af-81d7-c317507a41ed" src="https://github.com/user-attachments/assets/24d4d838-4870-428e-ada9-5c41e4eec88a" />
+
+
 
 **RESULTS**
+ thus the basic logic gates are studied and the truth tables are verified
+
+
